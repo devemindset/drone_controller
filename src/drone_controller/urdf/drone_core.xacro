@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
     <material name="grey">
         <color rgba="0.5 0.5 0.5 1.0" />
     </material>
@@ -51,6 +51,9 @@
         <xacro:box_inertial m="2.0" w="0.5" d="0.5" h="0.1" />
     </link>
 
+    <gazebo reference="base_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
     <!-- front right arm-->
     <link name="front_right_arm">
         <visual>
@@ -240,6 +243,9 @@
         </collision>
         <xacro:cylinder_inertial m="1.3" r="0.03" h="0.05" />
     </link>
+    <gazebo reference="front_right_motor">
+        <material>Gazebo/Blue</material>
+    </gazebo>
     <joint name="joint_front_right_motor" type="fixed">
         <parent link="front_right_arm_end"/>
         <child link="front_right_motor"/>
@@ -259,6 +265,9 @@
         </collision>
         <xacro:cylinder_inertial m="1.3" r="0.03" h="0.05" />
     </link>
+    <gazebo reference="front_left_motor">
+        <material>Gazebo/Blue</material>
+    </gazebo>
     <joint name="joint_front_left_motor" type="fixed">
         <parent link="front_left_arm_end"/>
         <child link="front_left_motor"/>
@@ -278,6 +287,9 @@
         </collision>
         <xacro:cylinder_inertial m="1.3" r="0.03" h="0.05" />
     </link>
+    <gazebo reference="back_right_motor">
+        <material>Gazebo/Blue</material>
+    </gazebo>
     <joint name="joint_back_right_motor" type="fixed">
         <parent link="back_right_arm_end"/>
         <child link="back_right_motor"/>
@@ -297,6 +309,9 @@
         </collision>
         <xacro:cylinder_inertial m="1.3" r="0.03" h="0.05" />
     </link>
+    <gazebo reference="back_left_motor">
+        <material>Gazebo/Blue</material>
+    </gazebo>
     <joint name="joint_back_left_motor" type="fixed">
         <parent link="back_left_arm_end"/>
         <child link="back_left_motor"/>
@@ -397,7 +412,10 @@
             </geometry>
         </collision>
         <xacro:box_inertial m="0.5" w="0.2" d="0.02" h="0.01" />
-    </link>    
+    </link>  
+    <gazebo reference="front_right_propeller">
+        <material>Gazebo/Red</material>
+    </gazebo>  
     <joint name="joint_front_right_propeller" type="continuous">
         <parent link="front_right_motor_arm"/>
         <child link="front_right_propeller"/>
@@ -419,6 +437,9 @@
         </collision>
         <xacro:box_inertial m="0.5" w="0.2" d="0.02" h="0.01" />
     </link>    
+    <gazebo reference="front_left_propeller">
+        <material>Gazebo/Red</material>
+    </gazebo>  
     <joint name="joint_front_left_propeller" type="continuous">
         <parent link="front_left_motor_arm"/>
         <child link="front_left_propeller"/>
@@ -440,6 +461,9 @@
         </collision>
         <xacro:box_inertial m="0.5" w="0.2" d="0.02" h="0.01" />
     </link>    
+    <gazebo reference="back_right_propeller">
+        <material>Gazebo/Red</material>
+    </gazebo>  
     <joint name="joint_back_right_propeller" type="continuous">
         <parent link="back_right_motor_arm"/>
         <child link="back_right_propeller"/>
@@ -461,6 +485,9 @@
         </collision>
         <xacro:box_inertial m="0.5" w="0.2" d="0.02" h="0.01" />
     </link>    
+    <gazebo reference="back_left_propeller">
+        <material>Gazebo/Red</material>
+    </gazebo>  
     <joint name="joint_back_left_propeller" type="continuous">
         <parent link="back_left_motor_arm"/>
         <child link="back_left_propeller"/>

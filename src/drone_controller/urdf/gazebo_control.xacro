@@ -1,0 +1,12 @@
+<gazebo>
+    <plugin name"gazebo_ros_force_based_move" filename"Libgazebo_ros_force_based_move.so">
+    <ros>
+        <namespace>/drone</namespace>
+        <commandTopic>cmd_vel</commandTopic> <!-- Topic for velocity control-->
+        <odomTopic>odom</odomTopic>
+    </ros>
+    <linkName>base_link</linkName> <!-- the link where forces are applied-->
+    <enableGroundEffect>false</enableGroundEffect> <!--set true for altitude simulation-->
+    <maxForce>50</maxForce> <!-- Maximum applied force-->
+    </plugin>
+</gazebo>

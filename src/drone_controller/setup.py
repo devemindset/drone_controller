@@ -12,6 +12,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ("share/" + package_name + "/launch",["launch/display.launch.py"]),
         ("share/" + package_name + "/urdf",["urdf/drone_robot.urdf.xacro"]),
+        ("share/" + package_name + "/urdf",["urdf/drone_core.xacro"]),
+        ("share/" + package_name + "/urdf",["urdf/gazebo_control.xacro"]),
         ("share/" + package_name + "/rviz",["rviz/config.rviz"]),
         ("share/" + package_name + "/launch",["launch/gazebo.launch.py"])
     ],
@@ -24,6 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "drone_controller = drone_controller.drone_controller:main"
         ],
     },
 )
