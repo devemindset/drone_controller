@@ -1,12 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
 <gazebo>
-    <plugin name"gazebo_ros_force_based_move" filename"Libgazebo_ros_force_based_move.so">
-    <ros>
-        <namespace>/drone</namespace>
-        <commandTopic>cmd_vel</commandTopic> <!-- Topic for velocity control-->
-        <odomTopic>odom</odomTopic>
-    </ros>
-    <linkName>base_link</linkName> <!-- the link where forces are applied-->
-    <enableGroundEffect>false</enableGroundEffect> <!--set true for altitude simulation-->
-    <maxForce>50</maxForce> <!-- Maximum applied force-->
+    <plugin name="gazebo_ros_diff_drive" filename="libgazebo_ros_diff_drive.so">
+        <robotNamespace>/drone_controller</robotNamespace>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>base_link</robotBaseFrame>
+        
+    </plugin>
+
+    <plugin name="gazebo_ros_velocity" filename="libgazebo_ros_velocity.so">
+        <robotNamespace>/drone_controller</robotNamespace>
+        <bodyName>base_link</bodyName>
+        <topicName>cmd_vel</topicName>
+    </plugin>
+
+    <plugin name="gazebo_ros_force" filename="libgazebo_ros_force.so">
+        <bodyName>base_link</bodyName>
+        <topicName>force_cmd</topicName>
     </plugin>
 </gazebo>
+
+</robot>

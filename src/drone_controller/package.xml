@@ -6,10 +6,15 @@
   <description>TODO: Package description</description>
   <maintainer email="mona_robot@todo.todo">mona_robot</maintainer>
   <license>Apache-2.0</license>
-
+  
   <depend>rclpy</depend>
   <depend>robot_state_publisher</depend>
   <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf_transformations</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
 
 
   <test_depend>ament_copyright</test_depend>
